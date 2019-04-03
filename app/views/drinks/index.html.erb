@@ -1,5 +1,5 @@
+<%= notice %>
 <div>
-
   <div class="searcher">
     <div class="searcher__radio">
       <div class="form-check">
@@ -24,7 +24,15 @@
       </div>
     <% end %>
     <div class="advanced-form" style="display:none;">
-      User inputs to search a collection of drinks based on given recommendations.
+      <%= form_tag ('/advanced_search') do%>
+        <div class="form-group">
+          <%= search_field_tag 'input_advanced','Enter your search', class: 'form-control form-control-lg'%>
+        </div>
+        &nbsp;
+        <div class="form-group">
+          <%= submit_tag "Search", class: 'btn btn-outline-primary btn-lg' %>
+        </div>
+      <% end %>
     </div>
   </div>
 

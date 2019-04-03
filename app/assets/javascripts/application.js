@@ -18,6 +18,7 @@
 
 function ready(event) {
   $('input[type=radio][name=searchRadio]').change(function() {
+    console.log(this.value);
     if (this.value === 'simple') {
       $('.simple-form').show();
       $('.advanced-form').hide();
