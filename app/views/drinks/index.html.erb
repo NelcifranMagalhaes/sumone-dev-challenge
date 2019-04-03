@@ -1,8 +1,4 @@
 <div>
-  <div class="header gradient">
-    <%= image_tag 'cocktail-white.svg', class: 'icon' %>
-    <div class="header__title">The drinks searcher</div>
-  </div>
 
   <div class="searcher">
     <div class="searcher__radio">
@@ -18,11 +14,11 @@
 
     <%= search_form_for @q, url: root_path, html: {method: :get} do |f| %>
       <div class="simple-form">
-        <div class="simple-form__input">
+        <div class="form-group">
           <%= f.search_field :name_cont,class: 'form-control form-control-lg',placeholder: "Try a Martini..",label: false %>
         </div>
-
-        <div class="simple-form__btn">
+        &nbsp;
+        <div class="form-group">
           <%= f.submit "Search", class: 'btn btn-outline-primary btn-lg' %>
         </div>
       </div>
@@ -32,13 +28,13 @@
     </div>
   </div>
 
-  <div align="center">
+  <div class="text-center">
     <%= paginate @drinks%>
   </div>
 
   <div class="drinks-list">
     <% @drinks.each do |drink| %>
-      <div class="card drink-card">
+      <div class="card drink-card col-md-12">
         <%= image_tag drink.image_url, class: 'drink-card__img' %>
         <div class="drink-card__body">
           <h2><%= drink.name %></h2>
@@ -48,7 +44,7 @@
     <% end %>
   </div>
 
-  <div class='col-md-8 text-center hidden-xs' align="center">
+  <div class="text-center">
     <%= paginate @drinks%>
   </div>
 
