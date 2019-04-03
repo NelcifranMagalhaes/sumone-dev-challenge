@@ -16,20 +16,24 @@
       </div>
     </div>
 
-    <%= form_tag do %>
+    <%= search_form_for @q, url: root_path, html: {method: :get} do |f| %>
       <div class="simple-form">
         <div class="simple-form__input">
-          <input class="form-control form-control-lg" type="text" placeholder="Try a Martini..">
+          <%= f.search_field :name_cont,class: 'form-control form-control-lg',placeholder: "Try a Martini..",label: false %>
         </div>
-        <div class="simple-form__btn">
-          <button type="submit" class="btn btn-outline-primary btn-lg">Search</button>
-        </div>
-      </div>
 
-      <div class="advanced-form" style="display:none;">
-        User inputs to search a collection of drinks based on given recommendations.
+        <div class="simple-form__btn">
+          <%= f.submit "Search", class: 'btn btn-outline-primary btn-lg' %>
+        </div>
       </div>
     <% end %>
+    <div class="advanced-form" style="display:none;">
+      User inputs to search a collection of drinks based on given recommendations.
+    </div>
+  </div>
+
+  <div align="center">
+    <%= paginate @drinks%>
   </div>
 
   <div class="drinks-list">
@@ -43,4 +47,9 @@
       </div>
     <% end %>
   </div>
+
+  <div class='col-md-8 text-center hidden-xs' align="center">
+    <%= paginate @drinks%>
+  </div>
+
 </div>
