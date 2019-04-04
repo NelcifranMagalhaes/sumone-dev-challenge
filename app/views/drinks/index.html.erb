@@ -26,7 +26,19 @@
     <div class="advanced-form" style="display:none;">
       <%= form_tag ('/advanced_search') do%>
         <div class="form-group">
-          <%= search_field_tag 'input_advanced','Enter your search', class: 'form-control form-control-lg'%>
+          <%= search_field_tag 'age',nil,class: 'form-control form-control-lg',placeholder: 'Enter your AGE'%>
+        </div>
+        <div class="form-group">
+          <%= search_field_tag 'country',nil,class: 'form-control form-control-lg',placeholder: 'Enter your Country'%>
+        </div>
+        <div class="form-group">
+          <%= select_tag "drink_type", options_for_select([ "HOT", "COLD","WARM","AMBIENT", "EXTRA_COLD"]),include_blank: true,prompt: "Select Your type"%>
+        </div>
+        <div class="form-group">
+          <%= select_tag "drunked", options_for_select([ "NOT", "YES"]),include_blank: true,prompt: "Want to be drunked?"%>
+        </div>
+        <div class="form-group">
+          <%= select_tag "sugar", options_for_select([ "NOT", "YES"]),include_blank: true,prompt: "Do you like sugar?"%>
         </div>
         &nbsp;
         <div class="form-group">

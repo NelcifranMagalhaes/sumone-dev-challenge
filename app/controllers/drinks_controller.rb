@@ -5,7 +5,22 @@ class DrinksController < ApplicationController
   end
 
   def advanced_search
-     redirect_to root_path, notice: 'entrou em advanced serach action.'
+  	drink_type = params['drink_type']
+  	age = params['age']
+  	country = params['country']
+  	drunked = params['drunked']
+  	sugar = params['sugar']
+  	array_search = Array.new()
+  	if drink_type.present? && age.present? && country.present? && drunked.present? && sugar.present?
+
+		redirect_to root_path, notice: 'Your recomendations is here.'
+
+  	else
+
+		redirect_to root_path, notice: 'Fill all fields for you recomendation.'
+  		
+  	end
+
   	
   end
 
