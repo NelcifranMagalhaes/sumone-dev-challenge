@@ -13,8 +13,5 @@ class Drink < ApplicationRecord
     extra_cold
   ]
 
-  scope :search_advanced, -> (drink_type,country) {
-      where("temperature == #{drink_type.downcase} and origin == #{country}")
-  }
 
 end

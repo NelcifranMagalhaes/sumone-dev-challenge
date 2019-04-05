@@ -1,18 +1,18 @@
 <%= notice %>
 &nbsp;
 <div class="container">
-    <%= search_form_for @q, url: root_path, html: {method: :get} do |f| %>
+    <%= simple_form_for @q, url: root_path, html: {method: :get} do |f| %>
         <div class="form-group">
-          <%= f.search_field :name_cont,class: 'form-control',placeholder: "Try a Martini..",label: false %>
+          <%= f.input :name_cont,class: 'form-control',placeholder: "Try a Martini..",label: false %>
         </div>
         <div class="form-group">
-          <%= f.search_field :temperature_eq,class: 'form-control',placeholder: "Best temperature..",label: false %>
+          <%= f.input :temperature_eq,class: 'form-control',prompt: "Best temperature..",label: false,collection:[['hot', 0],['warm', 1],['ambient',2],['cold',3,],['extra_cold',4]], label_method: :first,value_method: :second%>
         </div>
         <div class="form-group">
-          <%= f.search_field :alcohol_level_eq,class: 'form-control',placeholder: "Want to be drunked?..",label: false %>
+          <%= f.input :alcohol_level_eq,class: 'form-control',prompt: "Want to be drunked?..",label: false,collection:["Yes","No"]%>
         </div>
         <div class="form-group">
-          <%= f.search_field :ibu,class: 'form-control',placeholder: "Sugar?..",label: false %>
+          <%= f.input :ibu,class: 'form-control',prompt: 'Sugar?..',label: false,collection:["Yes","No"]%>
         </div>
         <div class="form-group">
           <%= f.submit "Search", class: 'btn btn-outline-primary btn-lg' %>
@@ -33,7 +33,6 @@
             <div class="col-lg-6 order-lg-2">
               <div class="p-5">
                 <%= image_tag drink.image_url, class: 'img-fluid img-thumbnail drink-card__img' %>
-                <!-- <img class="img-fluid rounded-circle" src="img/01.jpg" alt=""> -->
               </div>
             </div>
             <div class="col-lg-6 order-lg-1">
