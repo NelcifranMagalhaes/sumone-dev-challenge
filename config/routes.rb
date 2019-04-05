@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   root to: 'drinks#index'
   post '/advanced_search' , to: 'drinks#advanced_search'
+  get '/advanced_search' , to: 'drinks#index'
 
   resources :home, only: %i[index]
 end

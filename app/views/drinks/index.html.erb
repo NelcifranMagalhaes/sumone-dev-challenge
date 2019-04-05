@@ -1,71 +1,55 @@
 <%= notice %>
-<div>
-  <div class="searcher">
-    <div class="searcher__radio">
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="searchRadio" id="simpleSearch" value="simple" checked>
-        <label class="form-check-label" for="simpleSearch">Easy search</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="searchRadio" id="advancedSearch" value="advanced">
-        <label class="form-check-label" for="advancedSearch">Recommend me ;)</label>
-      </div>
-    </div>
-
+&nbsp;
+<div class="container">
     <%= search_form_for @q, url: root_path, html: {method: :get} do |f| %>
-      <div class="simple-form">
         <div class="form-group">
-          <%= f.search_field :name_cont,class: 'form-control form-control-lg',placeholder: "Try a Martini..",label: false %>
+          <%= f.search_field :name_cont,class: 'form-control',placeholder: "Try a Martini..",label: false %>
         </div>
-        &nbsp;
+        <div class="form-group">
+          <%= f.search_field :temperature_eq,class: 'form-control',placeholder: "Best temperature..",label: false %>
+        </div>
+        <div class="form-group">
+          <%= f.search_field :alcohol_level_eq,class: 'form-control',placeholder: "Want to be drunked?..",label: false %>
+        </div>
+        <div class="form-group">
+          <%= f.search_field :ibu,class: 'form-control',placeholder: "Sugar?..",label: false %>
+        </div>
         <div class="form-group">
           <%= f.submit "Search", class: 'btn btn-outline-primary btn-lg' %>
         </div>
-      </div>
     <% end %>
-    <div class="advanced-form" style="display:none;">
-      <%= form_tag ('/advanced_search') do%>
-        <div class="form-group">
-          <%= search_field_tag 'age',nil,class: 'form-control form-control-lg',placeholder: 'Enter your AGE'%>
-        </div>
-        <div class="form-group">
-          <%= search_field_tag 'country',nil,class: 'form-control form-control-lg',placeholder: 'Enter your Country'%>
-        </div>
-        <div class="form-group">
-          <%= select_tag "drink_type", options_for_select([ "HOT", "COLD","WARM","AMBIENT", "EXTRA_COLD"]),include_blank: true,prompt: "Select Your type"%>
-        </div>
-        <div class="form-group">
-          <%= select_tag "drunked", options_for_select([ "NOT", "YES"]),include_blank: true,prompt: "Want to be drunked?"%>
-        </div>
-        <div class="form-group">
-          <%= select_tag "sugar", options_for_select([ "NOT", "YES"]),include_blank: true,prompt: "Do you like sugar?"%>
-        </div>
-        &nbsp;
-        <div class="form-group">
-          <%= submit_tag "Search", class: 'btn btn-outline-primary btn-lg' %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="text-center">
-    <%= paginate @drinks%>
-  </div>
-
-  <div class="drinks-list">
-    <% @drinks.each do |drink| %>
-      <div class="card drink-card col-md-12">
-        <%= image_tag drink.image_url, class: 'drink-card__img' %>
-        <div class="drink-card__body">
-          <h2><%= drink.name %></h2>
-          <p><%= drink.description %></p>
-        </div>
-      </div>
-    <% end %>
-  </div>
-
-  <div class="text-center">
-    <%= paginate @drinks%>
-  </div>
-
 </div>
+
+  <div class="text-center">
+    <%= paginate @drinks%>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <% @drinks.each do |drink| %>
+      <section>
+        <div class="container" align="center">
+          <div class="row align-items-center">
+            <div class="col-lg-6 order-lg-2">
+              <div class="p-5">
+                <%= image_tag drink.image_url, class: 'img-fluid img-thumbnail drink-card__img' %>
+                <!-- <img class="img-fluid rounded-circle" src="img/01.jpg" alt=""> -->
+              </div>
+            </div>
+            <div class="col-lg-6 order-lg-1">
+              <div class="p-5">
+                <h2 class="display-4"><%= drink.name %></h2>
+                <p><%= drink.description %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    <% end %>
+  </div>
+</div>
+  <div class="text-center">
+    <%= paginate @drinks%>
+  </div>
+
+
