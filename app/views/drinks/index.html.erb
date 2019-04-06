@@ -2,8 +2,9 @@
 &nbsp;
 <div class="container">
     <%= form_tag('/drinks') do %>
+        <%= hidden_field_tag 'search','simple' %>
         <div class="form-group">
-          <%= text_field_tag 'name',"Try a Martini.." ,class: 'form-control'%>
+          <%= text_field_tag 'name',nil ,class: 'form-control',placeholder: "Try a Martini..."%>
         </div>
         <div class="form-group">
           <%= submit_tag "Search", class: 'btn btn-outline-primary btn-lg' %>
@@ -12,8 +13,9 @@
 </div>
 <div class="container">
     <%= form_tag('/drinks') do |f| %>
+        <%= hidden_field_tag 'search','advanced' %>
         <div class="form-group">
-          <%= select_tag 'temperature',options_for_select([ 'hot', 'warm','ambient', 'cold','extra_cold']),class: 'form-control',prompt: "Best temperature.."%>
+          <%= select_tag 'temperature',options_for_select({ 'hot': 0, 'warm': 1,'ambient': 2, 'cold': 3,'extra cold': 4}),class: 'form-control',prompt: "Best temperature.."%>
         </div>
         <div class="form-group">
           <%= select_tag 'alcohol_level',options_for_select(['Yes','No' ]),class: 'form-control',prompt: "Want to be drunked?.."%>
