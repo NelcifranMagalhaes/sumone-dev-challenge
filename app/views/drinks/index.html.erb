@@ -1,21 +1,28 @@
 <%= notice %>
 &nbsp;
 <div class="container">
-    <%= simple_form_for @q, url: root_path, html: {method: :get} do |f| %>
+    <%= form_tag('/drinks') do %>
         <div class="form-group">
-          <%= f.input :name_cont,class: 'form-control',placeholder: "Try a Martini..",label: false %>
+          <%= text_field_tag 'name',"Try a Martini.." ,class: 'form-control'%>
         </div>
         <div class="form-group">
-          <%= f.input :temperature_eq,class: 'form-control',prompt: "Best temperature..",label: false,collection:[['hot', 0],['warm', 1],['ambient',2],['cold',3,],['extra_cold',4]], label_method: :first,value_method: :second%>
+          <%= submit_tag "Search", class: 'btn btn-outline-primary btn-lg' %>
+        </div>
+    <% end %>
+</div>
+<div class="container">
+    <%= form_tag('/drinks') do |f| %>
+        <div class="form-group">
+          <%= select_tag 'temperature',options_for_select([ 'hot', 'warm','ambient', 'cold','extra_cold']),class: 'form-control',prompt: "Best temperature.."%>
         </div>
         <div class="form-group">
-          <%= f.input :alcohol_level_eq,class: 'form-control',prompt: "Want to be drunked?..",label: false,collection:["Yes","No"]%>
+          <%= select_tag 'alcohol_level',options_for_select(['Yes','No' ]),class: 'form-control',prompt: "Want to be drunked?.."%>
         </div>
         <div class="form-group">
-          <%= f.input :ibu,class: 'form-control',prompt: 'Sugar?..',label: false,collection:["Yes","No"]%>
+          <%= select_tag 'sugar',options_for_select(['Yes','No' ]),class: 'form-control',prompt: 'Sugar?..'%>
         </div>
         <div class="form-group">
-          <%= f.submit "Search", class: 'btn btn-outline-primary btn-lg' %>
+          <%= submit_tag "Search", class: 'btn btn-outline-primary btn-lg' %>
         </div>
     <% end %>
 </div>
