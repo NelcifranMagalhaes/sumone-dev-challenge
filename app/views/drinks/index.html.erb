@@ -1,6 +1,21 @@
 <%= notice %>
 &nbsp;
 <div class="container">
+  <div class="searcher">
+    <div class="searcher__radio">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="searchRadio" id="simpleSearch" value="simple" checked>
+        <label class="form-check-label" for="simpleSearch">Easy search</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="searchRadio" id="advancedSearch" value="advanced">
+        <label class="form-check-label" for="advancedSearch">Recommend me ;)</label>
+      </div>
+    </div>
+  </div>
+</div>
+&nbsp;
+<div class="container simple-form">
     <%= form_tag('/drinks') do %>
         <%= hidden_field_tag 'search','simple' %>
         <div class="form-group">
@@ -11,7 +26,7 @@
         </div>
     <% end %>
 </div>
-<div class="container">
+<div class="container advanced-form">
     <%= form_tag('/drinks') do |f| %>
         <%= hidden_field_tag 'search','advanced' %>
         <div class="form-group">
@@ -32,35 +47,29 @@
     <% end %>
 </div>
 
-  <div class="text-center">
-    <%= paginate @drinks%>
-  </div>
+<div class="text-center">
+  <%= paginate @drinks%>
+</div>
 
-<div class="container">
-  <div class="row">
+<div class="container text-center">
     <% @drinks.each do |drink| %>
-      <section>
-        <div class="container" align="center">
-          <div class="row align-items-center">
-            <div class="col-lg-6 order-lg-2">
-              <div class="p-5">
-                <%= image_tag drink.image_url, class: 'img-fluid img-thumbnail drink-card__img' %>
-              </div>
-            </div>
-            <div class="col-lg-6 order-lg-1">
-              <div class="p-5">
-                <h2 class="display-4"><%= drink.name %></h2>
-                <p><%= drink.description %></p>
-              </div>
+      <div class="card mb-3 " >
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <%= image_tag drink.image_url, class: 'img-fluid img-thumbnail card-img-top image_new' %>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title"><%= drink.name %></h5>
+              <p class="card-text"><%= drink.description %></p>
             </div>
           </div>
         </div>
-      </section>
+      </div>
     <% end %>
-  </div>
 </div>
-  <div class="text-center">
-    <%= paginate @drinks%>
-  </div>
+<div class="text-center">
+  <%= paginate @drinks%>
+</div>
 
 

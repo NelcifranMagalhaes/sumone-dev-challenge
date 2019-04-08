@@ -16,7 +16,9 @@
 //= require turbolinks
 //= require_tree .
 
+
 function ready(event) {
+  $('.advanced-form').hide();
   $('input[type=radio][name=searchRadio]').change(function() {
     console.log(this.value);
     if (this.value === 'simple') {
