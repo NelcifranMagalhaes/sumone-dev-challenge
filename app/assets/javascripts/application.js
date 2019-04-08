@@ -32,4 +32,5 @@ function ready(event) {
   });
 }
 
-$(document).on('turbolinks:load', ready);
+// $(document).on('turbolinks:load', ready);
+$(document).ready(function() {ready()});
