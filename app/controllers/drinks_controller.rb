@@ -22,8 +22,8 @@ class DrinksController < ApplicationController
 	 		@drinks = sophisticated == 'Yes' ? @drinks.where("rating_avg >= 4.43") : @drinks.where("rating_avg < 4.43") unless sophisticated.blank?
 	 		@drinks.order(name: :asc).page(params[:page]).per(10)
 	 	end
-
   	end
+
   end
 
 end

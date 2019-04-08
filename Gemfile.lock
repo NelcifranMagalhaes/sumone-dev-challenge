@@ -138,6 +138,10 @@ GEM
       rails-assets-tether (>= 1.4.0, < 2)
     rails-assets-jquery (3.2.1)
     rails-assets-tether (1.4.0)
+    rails-controller-testing (1.0.4)
+      actionpack (>= 5.0.1.x)
+      actionview (>= 5.0.1.x)
+      activesupport (>= 5.0.1.x)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -253,6 +257,7 @@ DEPENDENCIES
   rails (~> 5.1.4)
   rails-assets-bootstrap!
   rails-assets-jquery!
+  rails-controller-testing
   ransack
   react-rails
   rspec-rails (~> 3.7)
