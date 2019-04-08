@@ -1,5 +1,6 @@
 require "rails_helper"
 
+#Esses testes verificam quando o usuário envia o formulário, se ele é redirecionado para a pagina principal
 RSpec.describe "Drink", :type => :request do
 
   it "Search drink with simple search" do

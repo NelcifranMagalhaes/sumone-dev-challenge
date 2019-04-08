@@ -1,4 +1,8 @@
-<%= notice %>
+<%if notice.present? %>
+  <div class="alert alert-warning" role="alert">
+    <%=notice %>
+  </div>
+<% end %>
 &nbsp;
 <div class="container">
   <div class="searcher">
@@ -62,6 +66,7 @@
             <div class="card-body">
               <h5 class="card-title"><%= drink.name %></h5>
               <p class="card-text"><%= drink.description %></p>
+              <p class="card-text"><%= drink.ibu %></p>
             </div>
           </div>
         </div>

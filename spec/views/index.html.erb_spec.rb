@@ -6,7 +6,7 @@ RSpec.describe "search index", type: :feature do
 	before :each do
 	  FactoryBot.create(:drink)
 	end
-
+	#Esses testes verificam quando o usuário pesquisa um texto,caso ele seja verdadeiro traga um drink dentro de uma classe card 
 	it "using simple search" do
 	  visit '/drinks'
 	  fill_in 'name', with: 'Drink'
