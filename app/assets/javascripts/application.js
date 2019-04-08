@@ -15,21 +15,22 @@
 //= require rails-ujs
 //= require_tree .
 
+$(document).ready(function() {
 
-// function ready(event) {
-//   $('.advanced-form').hide();
-//   $('input[type=radio][name=searchRadio]').change(function() {
-//     console.log(this.value);
-//     if (this.value === 'simple') {
-//       $('.simple-form').show();
-//       $('.advanced-form').hide();
-//     }
-//     else if (this.value === 'advanced') {
-//       $('.simple-form').hide();
-//       $('.advanced-form').show();
-//     }
-//   });
-// }
+  function ready(event) {
+    $('.advanced-form').hide();
+    $('input[type=radio][name=searchRadio]').change(function() {
+      console.log(this.value);
+      if (this.value === 'simple') {
+        $('.simple-form').show();
+        $('.advanced-form').hide();
+      }
+      else if (this.value === 'advanced') {
+        $('.simple-form').hide();
+        $('.advanced-form').show();
+      }
+    });
+  }
 
-// // $(document).on('turbolinks:load', ready);
-// $(document).ready(function() {ready()});
+  ready();
+});
