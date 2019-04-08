@@ -7,7 +7,7 @@ RSpec.describe "Drink", :type => :request do
 
     post "/drinks", :params => { :search =>  "simple",:name =>  "Drink A"} 
 
-    expect(response).to render_template(:index)
+    expect(response).to redirect_to(root_path)
 
   end
 
@@ -15,7 +15,7 @@ RSpec.describe "Drink", :type => :request do
 
     post "/drinks", :params => { :search =>  "advanced",:temperature =>  "1"} 
 
-    expect(response).to render_template(:index)
+    expect(response).to redirect_to(root_path)
 
   end
 
