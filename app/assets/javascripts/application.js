@@ -13,10 +13,11 @@
 //= require jquery
 //= require bootstrap
 //= require rails-ujs
+//= require turbolinks
 //= require_tree .
 
-// $(document).on('turbolinks:load', ready);
-$(document).ready(function() {
+
+function ready(event) {
   $('.advanced-form').hide();
   $('input[type=radio][name=searchRadio]').change(function() {
     console.log(this.value);
@@ -29,4 +30,7 @@ $(document).ready(function() {
       $('.advanced-form').show();
     }
   });
-});
+}
+
+// $(document).on('turbolinks:load', ready);
+$(document).ready(function() {ready()});
