@@ -63,3 +63,5 @@ gem 'kaminari'
 gem 'ransack'
 #https://github.com/plataformatec/simple_form
 gem 'simple_form'
+#https://github.com/rails/jquery-rails
+gem 'jquery-rails'
